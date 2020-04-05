@@ -1,31 +1,33 @@
-const jobReducer = (action, state) => {
+const initialState = {};
+
+const jobsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CLEAR_JOBS': {
-      return { ...state, jobs: {} };
+      return ({});
     }
 
     case 'CREATE_JOB': {
       const job = {
-        id: state.id,
-        type: state.jobType,
-        createdAt: state.createdAt,
-        company: state.company,
-        companyUrl: state.companyUrl,
-        title: state.title,
-        description: state.description,
+        id: action.id,
+        type: action.jobType,
+        createdAt: action.createdAt,
+        company: action.company,
+        companyUrl: action.companyUrl,
+        title: action.title,
+        description: action.description,
       };
 
-      const nextJobs = { ...state.jobs };
+      const nextJobs = { ...state };
       nextJobs[job.id] = job;
 
-      return { ...state, jobs: nextJobs };
+      return nextJobs;
     }
 
     case 'REMOVE_JOB': {
-      const nextJobs = { ...state.jobs };
+      const nextJobs = { ...state };
       delete nextJobs[action.id];
 
-      return { ...state, jobs: nextJobs };
+      return nextJobs;
     }
 
     default:
@@ -33,4 +35,4 @@ const jobReducer = (action, state) => {
   }
 };
 
-export default jobReducer;
+export default jobsReducer;
