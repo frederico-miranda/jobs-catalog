@@ -1,0 +1,31 @@
+{
+  "name": "jobs-catalog",
+  "version": "0.1.0",
+  "description": "A browser-based interface for querying GitHub Jobs.",
+  "main": "src/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-recommended": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frederico-miranda/jobs-catalog.git"
+  },
+  "keywords": [
+    "jobs",
+    "api",
+    "github"
+  ],
+  "author": "Frederico Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frederico-miranda/jobs-catalog/issues"
+  },
+  "homepage": "https://github.com/frederico-miranda/jobs-catalog#readme"
+}
