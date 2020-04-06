@@ -4,6 +4,7 @@
   "description": "A browser-based interface for querying GitHub Jobs.",
   "main": "src/index.js",
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -40,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/frederico-miranda/jobs-catalog/issues"
   },
-  "homepage": "https://github.com/frederico-miranda/jobs-catalog#readme"
+  "homepage": "https://github.com/frederico-miranda/jobs-catalog#readme",
+  "engines": {
+    "node": "12.13.x"
+  }
 }
