@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
+body {
+  font-family: 'Gotu', sans-serif;
+}
+
+.app-main-box {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.app-search-box {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.app-search-box > * {
+  margin-inline-start: 16px;
+}
+
+.jobs-list {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.job-list-entry {
+  display: block;
+  border-block-start: 1px solid black;
+  padding: 8px;
+}
+
+.job-entry {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.job-entry > * {
+  margin-inline-start: 16px;
+}

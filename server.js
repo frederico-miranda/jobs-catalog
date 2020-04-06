@@ -10,6 +10,7 @@ const mimes = {
   htm: 'text/html',
   html: 'text/html',
   js: 'application/javascript',
+  css: 'text/css',
 };
 
 const mimeTypeFromPath = filePath => {

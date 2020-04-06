@@ -11,7 +11,7 @@ const JobList = ({ jobs, removeJob }) => {
     } = job;
 
     return (
-      <li key={id}>
+      <li className="job-list-entry" key={id}>
         <div className="job-entry">
           <div className="job-entry-type">
             Type:
@@ -28,7 +28,7 @@ const JobList = ({ jobs, removeJob }) => {
     );
   });
 
-  return (<ul>{ items }</ul>);
+  return (<ul className="jobs-list">{ items }</ul>);
 };
 
 JobList.propTypes = {

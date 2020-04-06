@@ -22,7 +22,7 @@ const App = ({ createJob }) => {
   };
 
   return (
-    <div>
+    <div className="app-main-box">
       <div className="app-search-box">
         <input type="text" onInput={changeSearchQuery} />
         <button type="button" onClick={clickSearchJobs}>Search Jobs</button>
