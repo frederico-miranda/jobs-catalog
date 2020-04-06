@@ -3,14 +3,14 @@ import PropType from 'prop-types';
 import { connect } from 'react-redux';
 
 import JobList from './job-list';
-import { createJob } from '../actions/jobs';
+import { createJob, removeJob } from '../actions/jobs';
 import { fetchJobs } from '../fetch';
 
 const initialState = {
   searchQuery: null,
 };
 
-const App = ({ createJob }) => {
+const App = ({ jobs, removeJob, createJob }) => {
   const [state, setState] = React.useState(initialState);
 
   const changeSearchQuery = event => {
@@ -27,19 +27,26 @@ const App = ({ createJob }) => {
         <input type="text" onInput={changeSearchQuery} />
         <button type="button" onClick={clickSearchJobs}>Search Jobs</button>
       </div>
-      <JobList />
+      <JobList jobs={jobs} removeJob={removeJob} />
     </div>
   );
 };
 
 App.propTypes = {
+  jobs: PropType.object.isRequired,
   createJob: PropType.func.isRequired,
+  removeJob: PropType.func.isRequired,
 };
+
+const mapStateToProps = state => ({ jobs: state.jobs });
 
 const mapDispatchToProps = dispatch => ({
   createJob: rawJob => {
     dispatch(createJob(rawJob));
   },
+  removeJob: id => {
+    dispatch(removeJob(id));
+  },
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

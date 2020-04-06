@@ -1,8 +1,5 @@
 import React from 'react';
 import PropType from 'prop-types';
-import { connect } from 'react-redux';
-
-import { removeJob } from '../actions/jobs';
 
 const JobList = ({ jobs, removeJob }) => {
   const items = Object.values(jobs).map(job => {
@@ -37,12 +34,4 @@ JobList.propTypes = {
   removeJob: PropType.func.isRequired,
 };
 
-const mapStateToProps = state => ({ jobs: state.jobs });
-
-const mapDispatchToProps = dispatch => ({
-  removeJob: id => {
-    dispatch(removeJob(id));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(JobList);
+export default JobList;
