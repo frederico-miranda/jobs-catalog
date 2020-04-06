@@ -2,7 +2,9 @@ import React from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 
-const JobList = ({ jobs }) => {
+import { removeJob } from '../actions/jobs';
+
+const JobList = ({ jobs, removeJob }) => {
   const items = Object.values(jobs).map(job => {
     const {
       id, type, title, company, companyUrl,
@@ -20,6 +22,7 @@ const JobList = ({ jobs }) => {
             Company:
             <a href={companyUrl}>{ company }</a>
           </div>
+          <button type="button" onClick={() => removeJob(id)}>Remove</button>
         </div>
       </li>
     );
@@ -31,8 +34,15 @@ const JobList = ({ jobs }) => {
 JobList.propTypes = {
   /* eslint-disable-next-line react/forbid-prop-types */
   jobs: PropType.object.isRequired,
+  removeJob: PropType.func.isRequired,
 };
 
 const mapStateToProps = state => ({ jobs: state.jobs });
 
-export default connect(mapStateToProps)(JobList);
+const mapDispatchToProps = dispatch => ({
+  removeJob: id => {
+    dispatch(removeJob(id));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobList);
