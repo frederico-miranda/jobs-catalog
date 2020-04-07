@@ -7,6 +7,8 @@ const JobList = ({ jobs, removeJob }) => {
       id, type, title, company, companyUrl,
     } = job;
 
+    const jobPath = `/jobs/${id}`;
+
     return (
       <li className="job-list-entry" key={id}>
         <div className="job-entry">
@@ -14,7 +16,9 @@ const JobList = ({ jobs, removeJob }) => {
             Type:
             { type }
           </div>
-          <div className="job-entry-title">{ title }</div>
+          <div className="job-entry-title">
+            <a href={jobPath}>{ title }</a>
+          </div>
           <div className="job-entry-company">
             Company:
             <a href={companyUrl}>{ company }</a>

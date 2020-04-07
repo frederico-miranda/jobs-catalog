@@ -95,10 +95,30 @@ const actionServeStatic = async (matches, request, response) => {
   response.end();
 };
 
+const actionJobPage = async (matches, request, response) => {
+  const filePath = './index.html';
+  let fileData = fileCache[filePath];
+  let fileMime = 'text/html';
+
+  if (!fileData) {
+    fileData = await fs.promises.readFile(filePath);
+    fileCache[filePath] = fileData;
+  }
+
+  response.statusCode = 200;
+  response.setHeader('Content-Type', fileMime);
+  response.write(fileData);
+  response.end();
+};
+
 const routes = [
   {
     regex: /^\/positions\.json\?.{1,512}/,
     action: actionProxyQuery,
+  },
+  {
+    regex: /^\/jobs\/(.{1,512})/,
+    action: actionJobPage,
   },
   {
     regex: /^\/.{0,512}$/,
