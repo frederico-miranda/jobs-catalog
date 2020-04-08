@@ -56,6 +56,9 @@ const JobDetails = ({ match }) => {
   );
 };
 
-const mapStateToProps = state => ({ job: state.jobs.selectedJob });
+JobDetails.propTypes = {
+  /* eslint-disable-next-line */
+  match: PropType.object.isRequired,
+};
 
 export default JobDetails;

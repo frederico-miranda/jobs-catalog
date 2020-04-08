@@ -2,7 +2,6 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const url = require('url');
-const querystring = require('querystring');
 
 const fileCache = {};
 
@@ -98,7 +97,7 @@ const actionServeStatic = async (matches, request, response) => {
 const actionJobPage = async (matches, request, response) => {
   const filePath = './index.html';
   let fileData = fileCache[filePath];
-  let fileMime = 'text/html';
+  const fileMime = 'text/html';
 
   if (!fileData) {
     fileData = await fs.promises.readFile(filePath);
