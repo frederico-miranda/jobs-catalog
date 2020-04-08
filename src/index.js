@@ -16,7 +16,7 @@ ReactDOM.render(
       <BrowserRouter>
         <div>
           <Route path="/jobs/:jobKey" component={JobDetails} />
-          <Route path="/" component={App} />          
+          <Route path="/" component={App} />
         </div>
       </BrowserRouter>
     </Provider>

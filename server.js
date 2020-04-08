@@ -117,6 +117,10 @@ const routes = [
     action: actionProxyQuery,
   },
   {
+    regex: /^\/positions\/.{1,512}\.json$/,
+    action: actionProxyQuery,
+  },
+  {
     regex: /^\/jobs\/(.{1,512})/,
     action: actionJobPage,
   },

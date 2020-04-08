@@ -1,10 +1,26 @@
 import React from 'react';
 import PropType from 'prop-types';
 
+import { fetchJob } from '../fetch';
+
+const jobState = null;
+
 const JobDetails = ({ match }) => {
-  return (<div>{`TODO: JobDetails page for key: ${match.params.jobKey}`}</div>);
-  /*
-  console.log('jobKey: ', jobKey);
+  const { jobKey } = match.params;
+
+  const [job, setJob] = React.useState(jobState);
+
+  React.useEffect(() => {
+    if (job === null) {
+      const promise = fetchJob(jobKey);
+      promise.then(job => setJob(job));
+    }
+  });
+
+  if (job === null) {
+    return (<div>Loading...</div>);
+  }
+
   const {
     type,
     createdAt,
@@ -12,7 +28,7 @@ const JobDetails = ({ match }) => {
     companyUrl,
     title,
     description,
-  } = jobKey;
+  } = job;
 
   const descriptionNode = document.createElement('div');
   descriptionNode.classList.add('job-details-description');
@@ -37,7 +53,7 @@ const JobDetails = ({ match }) => {
         { title }
       </div>
     </div>
-  ); */
+  );
 };
 
 const mapStateToProps = state => ({ job: state.jobs.selectedJob });
